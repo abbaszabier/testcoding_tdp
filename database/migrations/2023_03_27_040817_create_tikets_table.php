@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('nomor_telepon');
             $table->integer('tiket');
-            $table->boolean('status')->default(false);
+            $table->string('status')->default('Belum Terpakai');
             $table->timestamps();
         });
     }

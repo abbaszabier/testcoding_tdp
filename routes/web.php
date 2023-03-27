@@ -23,4 +23,7 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', [AdminCOntroller::class, 'index']);
+Route::get('/dashboard', [AdminCOntroller::class, 'index'])->middleware('auth');
+Route::get('/tiket/{id}/edit', [AdminCOntroller::class, 'edit'])->name('edit')->middleware('auth');
+Route::put('/tiket/{id}', [AdminCOntroller::class, 'update'])->name('update')->middleware('auth');
+Route::delete('/tiket/{tiket}', [AdminCOntroller::class, 'destroy'])->name('destroy')->middleware('auth');
