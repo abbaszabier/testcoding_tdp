@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tiket;
 use Illuminate\Http\Request;
 
 class AdminCOntroller extends Controller
 {
     public function index(){
-        return view('admin.dashboard');
+        $tikets = Tiket::all();
+        return view('admin.dashboard', compact('tikets'));
     }
 }
