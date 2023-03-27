@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminCOntroller;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TiketController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TiketController::class, 'index']);
 Route::post('/success', [TiketController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', [AdminCOntroller::class, 'index']);
